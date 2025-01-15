@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+
+        .menu{
+
+            border: 1px solid black;
+
+            display: flex;
+
+        }
+
+        .menu_item{
+            width: 25%;
+            height: 40px;
+            line-height: 40px;
+
+            border: 1px solid black;
+            text-align: center;
+            background-color: skyblue;
+            color: white;
+
+
+            position: relative;
+
+        }
+
+        .menu_item:hover{
+            background-color: #7bbbd7;
+        }
+
+        .hidden_menu{
+           display: none;  /* 안보이기 */
+
+           width: 50%;
+          /* background-color: antiquewhite; */
+           color: gray;
+           padding: 5px;
+           box-sizing: border-box;
+           border: 1px solid beige;
+           background-color: aqua;
+
+
+
+           /*상위메뉴를 기준으로 배치 */
+
+           position: absolute;
+           left: 0px;
+           top:40px;
+
+
+           z-index: 999;
+        }
+
+
+        .menu_item:hover  .hidden_menu{
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <ul class="menu">
+        <li class="menu_item">메뉴1
+            <!--하위메뉴-->
+            <ul class="hidden_menu">
+                <li>하위메뉴1</li>
+                <li>하위메뉴1</li>
+                <li>하위메뉴1</li>
+            </ul>
+        </li>
+        <li class="menu_item">메뉴2
+              <!--하위메뉴-->
+              <ul class="hidden_menu">
+                <li>하위메뉴1</li>
+                <li>하위메뉴1</li>
+                <li>하위메뉴1</li>
+            </ul>
+        </li>
+        <li class="menu_item">메뉴3
+              <!--하위메뉴-->
+              <ul class="hidden_menu">
+                <li>하위메뉴1</li>
+                <li>하위메뉴1</li>
+                <li>하위메뉴1</li>
+            </ul>
+        </li>
+        <li class="menu_item">메뉴4</li>
+    </ul>
+
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe, voluptatum necessitatibus ratione odio nemo explicabo? Eius minima optio eum vero quidem adipisci magnam quos, corrupti aut, tempore, magni vitae.
+    Repellendus quia molestiae porro voluptas! Sint eius illo perferendis dolor qui debitis totam, praesentium sit excepturi architecto exercitationem ex, vitae deserunt sed quaerat dicta eos earum quia facilis corrupti! Architecto?
+    Explicabo quasi vero eum ipsum natus dignissimos velit neque rem, corporis, nisi in. Repellendus placeat eius corrupti dignissimos hic voluptas quasi, ratione debitis blanditiis ut, dicta ad beatae adipisci illo.
+    Deserunt commodi aspernatur dolorum delectus nihil cum est optio, recusandae qui eligendi voluptatibus ipsum libero placeat porro error ex accusantium sunt exercitationem deleniti. Deserunt eos dolores, maxime iure harum maiores.
+    Dolorem deleniti in atque eligendi neque architecto possimus accusamus ducimus fugit, sit et blanditiis totam nihil tenetur tempore pariatur, quis sed, quae sint! Tempore, iure consequuntur! Ipsum quisquam alias cum!
+    Fugit ipsa blanditiis dolore, eaque suscipit distinctio earum nam mollitia quisquam velit minus nobis sit quae delectus quibusdam voluptates in temporibus neque quasi incidunt quis nostrum veritatis, aspernatur quas. Beatae.
+    Reprehenderit, fugit! Omnis temporibus vitae doloremque tempore voluptates quae qui eum consectetur quaerat illo odio explicabo corrupti, maxime, ea voluptate voluptatum voluptatem cum dolor inventore odit impedit, quos placeat! Sit?
+    Tenetur praesentium quod ducimus laudantium aut, reprehenderit qui corrupti in unde voluptatibus laboriosam, dolor pariatur eveniet saepe doloremque incidunt beatae, velit quae voluptas eaque facilis! Animi aperiam doloribus odio eveniet.
+    Labore sed dolorem architecto provident nesciunt voluptas voluptatum enim vel consectetur placeat, iste veniam aliquam velit deleniti ullam nam tempora expedita nobis rerum distinctio doloremque quae. Quis perspiciatis nisi enim.
+    Reprehenderit odio similique dignissimos, voluptatibus aperiam fugiat at? Repellendus, asperiores vitae velit quam excepturi doloribus esse deleniti nulla quia mollitia deserunt recusandae impedit sit a nisi molestias? Dolorum, excepturi laudantium.</p>
+    
+</body>
+</html>

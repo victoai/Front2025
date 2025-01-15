@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+ 
+
+    <style>
+
+
+        ul{
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .menu{
+           
+            padding: 0px;
+
+            display: flex;
+
+
+            width: 600px;
+
+        }
+
+        .menu-item{
+            width: 25%;
+            height: 40px;
+            border: 1px solid black;
+            line-height: 40px;
+
+            position: relative;
+        }
+
+
+
+        .hidden-menu{
+           /* background-color: red;*/
+
+            display: none;
+
+            position: absolute;
+            top:40px;
+            left: 0px;
+
+            padding-top: 100px;
+        }
+
+
+        .menu-item:hover  .hidden-menu {
+
+            display: block;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <ul class="menu">
+        <li class="menu-item">바지</li>
+        <li class="menu-item">스커트
+
+            <ul class="hidden-menu">
+                <li>하위</li>
+                <li>하위</li>
+                <li>하위</li>
+            </ul>
+        </li>
+        <li class="menu-item">코트</li>
+        <li class="menu-item">기타</li>
+    </ul>
+    
+</body>
+</html>

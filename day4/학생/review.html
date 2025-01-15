@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        .full_container {
+            width: 750px;
+         /*   height: 940px;  */
+            border:1px solid black;
+            padding:20px;
+        }
+
+        .upper {
+            width: 100%;
+            height: 35%;
+            display: flex;
+            text-align: center;
+        }
+
+        .image_container {
+            width: 50%;
+            height: 100%;
+        }
+
+        img {
+            width: 90%;
+            height: 90%;
+            object-fit:cover;
+        }
+
+        .review_container {
+            width: 50%;
+            height: 100%;
+        }
+
+        .review_container textarea {
+            width: 100%;
+            height: 50%;
+             box-sizing: border-box;
+
+        }
+
+        .middle {
+            width: 100%;
+            height: 10%;
+            display: flex;
+        }
+
+        .first,
+        .second,
+        .third {
+            width:33%;
+            text-align: center;
+        }
+
+        .first input,
+        .second input,
+        .third input {
+            width:100%;
+            height:30px;
+        }
+
+        .lower {
+            width: 100%;
+            height: 47%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .lower textarea {
+            width: 100%;
+            height: 100px;
+            box-sizing: border-box;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="full_container">
+        <h2>REVIEW DETAIL</h2>
+        <div class="upper">
+            <div class="image_container">
+                <h3>이미지</h3>
+                <img src="./img/spirit.png">
+            </div>
+            <div class="review_container">
+                <h3>맛평가(후기)</h3>
+                <textarea></textarea>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="first">
+                <p>연령대</p>
+                <input type="text">
+            </div>
+            <div class="second">
+                <p>만족도</p>
+                <input type="text">
+            </div>
+            <div class="third">
+                <p>성별</p>
+                <input type="text">
+            </div>
+        </div>
+        <div class="lower">
+            <div class="info_container">
+                <p>판매점 정보</p>
+                <textarea></textarea>
+            </div>
+            <br><br>
+            <div class="more_info">
+                <p>더 나누고 싶은 정보</p>
+                <textarea></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

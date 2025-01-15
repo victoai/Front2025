@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        header{
+            height: 70px;
+            background-color: antiquewhite;
+
+            display: flex;
+
+
+   }
+        img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        ul{
+            width: 300px;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+
+
+            border: 1px solid rgb(219, 14, 14);
+          
+        }
+
+        ul li{
+            /*border:1px solid black;*/
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+          
+
+            color: #5c5c5c
+             
+        }
+
+        span{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+
+        .title{
+            width: 10%;
+
+        }
+
+        .nav{
+            width: 70%;
+            border:1px solid black;
+        }
+
+        .menu{
+            width: 20%;
+            border: 1px solid black;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <header>
+
+        <div class="title"></div>
+        <div class="nav"></div>
+        <div class="menu">
+            <ul>
+                <li><img src="https://ssl.pstatic.net/happyimg2/img3/social/comment/img/default_profile.jpg"> 
+                    <span> 위시카드님</span> | </li>          
+                <li> <span>로그아웃</span>| </li>
+                <li><img src="data:image/png;base64,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"></li>
+            </ul>
+        </div>
+    </header>
+</body>
+</html>

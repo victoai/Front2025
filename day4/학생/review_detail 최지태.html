@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-weight: bold;
+        }
+
+        .wrap {
+            border: 1px solid black;
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        .title {
+            width: 100%;
+            text-align: center;
+        }
+
+        .review {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            text-align: center;
+            align-items: flex-start;
+        }
+
+        .review>p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .img {
+            width: 50%;
+            height: 100%;
+        }
+
+        img {
+            width: 90%;
+        }
+
+        .reviewText {
+            width: 50%;
+            height: 100%;
+
+        }
+
+        .reviewText>textarea {
+            width: 90%;
+            height: 100px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info{
+            margin-top: 20px;
+            width: 100%;
+        }
+
+
+        .infoText {
+            text-align: center;
+            padding: 20px;
+        }
+
+        
+        .survey {
+            width: 100%;
+        }
+
+        .surveytextarea {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .surveybox {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .surveytextarea>p {
+            margin: 5px;
+        }
+
+        .surveybox>div {
+            width: 33.3%;
+            height: 20px;
+            border: 1px solid black;
+        }
+
+        .infoText>p {
+            margin: 0;
+            text-align: left;
+        }
+
+        .infoText>textarea {
+            width: 100%;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="title">
+            <h2>REVIEW DETAIL</h2>
+        </div>
+        <div class="review">
+            <div class="img">
+                <p>이미지</p>
+                <img src="https://www.shutterstock.com/ko/blog/wp-content/uploads/sites/17/2018/11/shutterstock_1181891455.jpg" alt="">
+            </div>
+            <div class="reviewText">
+                <p>맛평가(후기)</p>
+                <textarea>
+
+                </textarea>
+            </div>
+        </div>
+        <div class="info">
+            <div class="survey">
+                <div class="surveytextarea">
+                    <p>연령대</p>
+                    <p>만족도</p>
+                    <p>성별</p>
+                </div>
+                <div class="surveybox">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="infoText">
+                <p>
+                    판매원 정보
+                </p>
+                <textarea>
+
+                </textarea>
+            </div>
+            <div class="infoText">
+                <p>
+                    더 나누고 싶은 정보
+                </p>
+                <textarea>
+                    
+                </textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
