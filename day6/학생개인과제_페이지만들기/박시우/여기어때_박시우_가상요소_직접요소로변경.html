@@ -77,17 +77,33 @@ h3{
             position: relative;
         }
 
-        .search::before {
-            content: "";
-            background: url(https://www.imwood.co.kr/news/photo/202006/24591_44429_4648.jpg);
+         /*  가상요소  */
+         
+
+        /* 요소 직접*/
+        .search >  .bg {
+            /*content: "";*/
+            background: url(https://www.imwood.co.kr/news/photo/202006/24591_44429_4648.jpg); 
             background-size: cover;
             background-position: 0%;
             opacity: 0.5;
             position: absolute;
             top: 0px;
             left: 0px;
+
+            /*
+            
+            부모의 너비와 동일하게 하는 코드
             right: 0px;
             bottom: 0px;
+
+
+            아래의 코드로 대체가능함 
+            너비와 높이를 주는 코드로 변경하였음 
+
+            */
+            width: 100%;
+            height: 100%;
         }
 
         .search p {
@@ -314,6 +330,7 @@ h3{
         </header>
 
         <div class="search">
+            <div class="bg"></div>
             <p>국내부터 해외까지 <br>여행할때 여기어때</p>
             <div class="search-wrap">
                 <div>

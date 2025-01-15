@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Input Expand</title>
+  <style>
+    .search-box {
+      transition: width 0.3s ease;
+      width: 50px;
+      padding: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" class="search-box" placeholder="검색어를 입력하세요" id="search-input">
+
+  <script>
+    const searchInput = document.getElementById('search-input');
+
+    searchInput.addEventListener('focus', () => {
+      const inputLength = searchInput.value.length;
+      const newWidth = 150; // 기본 너비 + 입력 길이에 따라 확장
+      searchInput.style.width = newWidth + 'px';
+    });
+
+    searchInput.addEventListener('blur', () => {
+      searchInput.style.width = '50px'; // 포커스 해제 시 기본 너비로 복원
+    });
+  </script>
+</body>
+</html>
