@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차시문제</title>
+    <style>
+        button {
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>2차시 문제 실행</h1>
+    <button onclick="two_two()">짝, 홀 판별</button>
+    <button onclick="two_three()">총점과 평균</button>
+    <button onclick="two_fourth()">최댓값</button>
+    <button onclick="two_fifth_sixth()">구구단 출력</button>
+    <button onclick="two_seventh()">3과 5의 배수</button>
+    <button onclick="two_eighth()">등급 계산</button>
+    <button onclick="two_ninth()">제곱 계산</button>
+    <button onclick="two_tenth()">숫자 더하기</button>
+    <button onclick="two_eleventh()">사칙연산 계산</button>
+    <button onclick="two_twelvth()">홀수 출력</button>
+    <button onclick="two_thirteenth()">특정 입력 출력</button>
+    <button onclick="two_fourteenth()">여러 숫자 제곱</button>
+    <button onclick="two_fifteenth()">음수 제곱</button>
+    <button onclick="two_sixteenth()">원의 둘레 계산</button>
+    <button onclick="two_seventeenth()">원의 넓이 계산</button>
+    <script>
+
+        function two_two() {
+            let num = prompt("짝,홀 판별하기위한 숫자입력");
+            if (num % 2 == 0) {
+                document.writeln("짝수입니다");
+            }
+            else {
+                document.writeln("홀수입니다");
+            }
+        }
+
+        function two_three() {
+            let kor = Math.floor(prompt("국어점수 : "));
+            let math = Math.floor(prompt("수학점수 : "));
+            let eng = Math.floor(prompt("영어점수 : "));
+
+            let sum = kor + math + eng;
+
+            document.writeln("총점 : ", sum);
+
+            let avg = Math.floor(sum / 3);
+            document.writeln("평균 : ", avg);
+        }
+
+        function two_fourth() {
+            let a = prompt("첫번째 숫자 : ");
+            let b = prompt("두번째 숫자 : ");
+            let c = prompt("세번째 숫자 : ");
+
+            let max = Math.max(a, b, c);
+            document.writeln("최댓값 : ", max);
+        }
+
+        function two_fifth_sixth() {
+            let gugu = prompt("출력할 구구단의 단수를 입력하세요 : ");
+            for (let i = 1; i < 10; i++) {
+                document.writeln(gugu * i);
+            }
+        }
+
+        function two_seventh() {
+            for (let i = 1; i <= 100; i++) {
+                if (i % 3 == 0) {
+                    document.writeln(i);
+                }
+            }
+            for (let i = 1; i <= 100; i++) {
+                if (i % 5 == 0) {
+                    document.writeln(i);
+                }
+            }
+            for (let i = 1; i <= 100; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    document.writeln(i);
+                }
+            }
+        }
+
+        function two_eighth() {
+            let score = prompt("점수를 입력하세요 : ");
+            if (score >= 90) {
+                document.writeln("A등급");
+            }
+            else if (score >= 80) {
+                document.writeln("B등급");
+            }
+            else if (score >= 70) {
+                document.writeln("C등급");
+            }
+            else if (score >= 60) {
+                document.writln("D등급");
+            }
+            else {
+                document.writeln("F등급");
+            }
+        }
+
+        function two_ninth() {
+            let num = prompt("제곱을 위한 수를 입력하세요 : ");
+            document.writeln(Math.pow(num, 2));
+        }
+
+        function two_tenth() {
+            let num1 = Math.floor(prompt("첫번째 숫자 : "));
+            let num2 = Math.floor(prompt("두번째 숫자 : "));
+            let sum = num1 + num2;
+            document.writeln(sum);
+        }
+
+        function two_eleventh() {
+            let num1 = Math.floor(prompt("첫번째 숫자 : 첫번째 숫자가 두번째 숫자보다 커야합니다"));
+            let num2 = Math.floor(prompt("두번째 숫자 : "));
+            let sign = Math.floor(prompt("사용할 사칙연산을 정하세요 +(1),-(2),*(3),/(4),%(5)"));
+            let result;
+
+            switch (sign) {
+                case 1:
+                    result = num1 + num2;
+                    document.writeln(result);
+                    break;
+                case 2:
+                    result = num1 - num2;
+                    document.writeln(result);
+                    break;
+                case 3:
+                    result = num1 * num2;
+                    document.writeln(result);
+                    break;
+                case 4:
+                    result = num1 / num2;
+                    document.writeln(result);
+                    break;
+                case 5:
+                    result = num1 % num2;
+                    document.writeln(result);
+                    break;
+            }
+        }
+
+        function two_twelvth() {
+            let num = prompt("숫자를 입력하세요 : ");
+            for (let i = 0; i < num; i++) {
+                if (i % 2 == 1) {
+                    document.writeln(i);
+                }
+            }
+        }
+
+        function two_thirteenth() {
+            while(true) {
+                let input = prompt("얼음 을 입력하시면 종료됩니다");
+                if(input == "얼음") {
+                    document.writeln(input);
+                    break;
+                }
+                document.writeln(input);
+            }
+        }
+
+        function two_fourteenth() {
+            let num1 = prompt("제곱을 위한 수를 입력하세요 : ");
+            document.writeln(Math.pow(num1, 2));
+            let num2 = prompt("제곱을 위한 수를 입력하세요 : ");
+            document.writeln(Math.pow(num2, 2));
+            let num3 = prompt("제곱을 위한 수를 입력하세요 : ");
+            document.writeln(Math.pow(num3, 2));
+        }
+
+        function two_fifteenth() {
+            while (true) {
+                let num = Math.floor(prompt("제곱을 위한 수를 입력하세요 : "));
+                if (Math.sign(num) == -1) {
+                    document.writeln(Math.pow(num, 2));
+                    break;
+                }
+                document.writeln(Math.pow(num, 2));
+            }
+        }
+
+        function two_sixteenth() {
+            let num = prompt("지름을 입력하세요 : 소수점은 생략합니다");
+            let round = 2 * num * Math.PI;
+            document.writeln(Math.floor(round));
+        }
+
+        function two_seventeenth() {
+            let num = prompt("지름을 입력하세요 : 소수점은 생략합니다");
+            let size = Math.PI * (Math.pow(num, 2));
+            document.writeln(Math.floor(size));
+        }
+    </script>
+</body>
+
+</html>

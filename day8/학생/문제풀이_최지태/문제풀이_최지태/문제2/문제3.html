@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let input_num1 = 0
+        let input_num2 = 0
+        let input_calc
+        let result = 0
+
+        input_num1 = parseInt(prompt("num1을 입력하세요."))
+        input_calc = prompt("연산자(+, -, *, /, %)를 입력하세요.")
+        input_num2 = parseInt(prompt("num2을 입력하세요."))
+
+        switch (input_calc) {
+            case "+":
+                result = input_num1 + input_num2
+                break
+            case "-":
+                result = input_num1 - input_num2
+                break
+            case "*":
+                result = input_num1 * input_num2
+                break
+            case "/":
+                result = input_num1 / input_num2
+                break
+            case "%":
+                result = input_num1 % input_num2
+                break
+            default :
+                result = null
+                break
+        }
+
+        if(result != null){
+            document.write(input_num1 + " " + input_calc + " " + input_num2 + " = " + result)
+        } else {
+            document.write("지원하지 않는 연산자입니다")
+        }
+    </script>
+</body>
+
+</html>

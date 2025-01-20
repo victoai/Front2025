@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input = 0
+        input = parseInt(prompt("수를 입력 하세요."))
+
+        for(let i = 1; i <= input; i++) {
+            for(let j = 1; j <= i; j++) {
+                document.write(j + "\t")
+            }
+            document.write("<br>")
+        }
+    </script>
+</body>
+</html>

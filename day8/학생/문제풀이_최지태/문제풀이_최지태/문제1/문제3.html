@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let input_name
+
+        input_name = prompt("이름을 입력해주세요")
+
+        let subject
+        let total_subject_score = 0
+
+        for (let i = 0; i < 3; i++) {
+            switch (i) {
+                case 0:
+                    subject = "국어"
+                    break;
+                case 1:
+                    subject = "영어"
+                    break;
+                case 2:
+                    subject = "수학"
+                    break;
+            }
+            while (true) {
+                let input_subject = prompt(subject + " 점수를 입력해주세요")
+                input_subject = parseInt(input_subject)
+                if (input_subject <= 100 && input_subject >= 0) {
+                    total_subject_score += input_subject
+                    break;
+                } else {
+                    alert("점수 입력을 (0~100)으로 입력해주세요.")
+                }
+            }
+        }
+        document.write(input_name, "님의 총점은 : " + total_subject_score + "\n")
+        document.write(input_name, "님의 평균은 : " + total_subject_score / 3)
+
+    </script>
+</body>
+
+</html>

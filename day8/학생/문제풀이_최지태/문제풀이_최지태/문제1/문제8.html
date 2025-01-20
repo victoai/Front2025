@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let input = 0;
+        let output;
+        input = parseInt(prompt("점수를 입력 하세요."))
+        input = Math.floor(input / 10)
+        console.log(input);
+        
+        switch (input) {
+            case 10, 9:
+                output = "A"
+                break;
+            case 8:
+                output = "B"
+                break;
+            case 7:
+                output = "C"
+                break;
+            case 6:
+                output = "D"
+                break;
+
+            default:
+                output = "F"
+                break;
+        }
+        document.write("성적은 : " + output)
+    </script>
+</body>
+
+</html>

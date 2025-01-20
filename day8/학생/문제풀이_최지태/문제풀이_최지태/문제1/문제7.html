@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num_3t = ""
+        let num_5t = ""
+        let num_3_5t = ""
+        let num_another = ""
+        
+        for(let i = 1; i <= 100; i++) {
+            if(i % 3 == 0) {
+                num_3t += i
+                num_3t += "\t"
+            }
+            if(i % 5 == 0) {
+                num_5t += i
+                num_5t += "\t"
+            }
+            if(i % 5 == 0 && i % 3 == 0) {
+                num_3_5t += i
+                num_3_5t += "\t"
+            }
+            if(i % 5 != 0 && i % 3 != 0) {
+                num_another += i
+                num_another += "\t"
+            }
+        }
+        document.write("3의 배수 : " + num_3t + "<br>")
+        document.write("5의 배수 : " + num_5t + "<br>")
+        document.write("3, 5의 공공배수 : " + num_3_5t + "<br>")
+        document.write("나머지 : " + num_another + "<br>")
+    </script>
+</body>
+</html>

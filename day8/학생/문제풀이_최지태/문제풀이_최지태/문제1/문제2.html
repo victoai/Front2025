@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let input = prompt("짝수 홀수 판별하기")
+        let checkNum = parseInt(input) % 2
+        let output = ""
+
+        if (checkNum === 0) {
+            output = "짝수 입니다."
+        } else if (checkNum === 1) {
+            output = "홀수 입니다."
+        } else {
+            output = "수가 아닙니다."
+        }
+        document.write(input, "은(는) ", output)
+    </script>
+</body>
+
+</html>
