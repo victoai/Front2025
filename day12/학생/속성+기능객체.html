@@ -17,10 +17,10 @@
 
             purchase : function(price){
                 price = parseInt(prompt("지불할 금액"));
-                if(note.notePrice>price){
+                if(this.notePrice>price){
                     alert("금액이 부족합니다");
                 }else{
-                    alert(`거래완료  거스름돈: ${price-note.notePrice}`)
+                    alert(`거래완료  거스름돈: ${price-this.notePrice}`)
                 }
 
             }
