@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper 애니메이션</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        .swiper {
+            width: 1200px;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        .bg1 {
+            background-color: black;
+            color: white;
+            height: 100%;
+        }
+
+        .bg2 {
+            background-color: rgb(207, 148, 148);
+            color: rgb(128, 122, 122);
+            height: 100%;
+        }
+
+        .bg1, .bg2 {
+            display: flex;
+        }
+
+        .title {
+            width: 30%;
+        }
+
+        .content {
+            width: 70%;
+        }
+
+        .emart {
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 1s ease-in-out;
+        }
+        
+        .bg3{
+        
+        background-color: rgb(222, 236, 138);
+        color: rgb(128, 122, 122);
+        height: 100%;
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    </style>
+</head>
+<body>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="bg1">
+                    <div class="title">
+                        <div class="emart">emart</div>
+                    </div>
+                    <div class="content">그림</div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="bg2">
+                    <div class="content">그림</div>
+                    <div class="title">
+                        <div class="emart">emart</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="bg3">
+                    APP  
+              </div>
+            </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            direction: 'vertical',
+            loop: true,
+            pagination: {
+            el: ' .swiper-pagination',
+            clickable: true, // 페이지네이션 클릭 가능하도록 설정
+        },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+
+        // 슬라이드 인덱스별 회전 및 이동 값 설정
+        const animations = [
+            { rotate: 45, translateX: 20, translateY: 10 },
+            { rotate: -120, translateX: -30, translateY: 15 },
+            { rotate: 180, translateX: 50, translateY: -20 }
+        ];
+
+        swiper.on('slideChange', function () {
+            console.log("현재 슬라이드 인덱스:", swiper.realIndex);
+
+            document.querySelectorAll('.emart').forEach((emart, index) => {
+                if (index === swiper.realIndex) {
+                    const anim = animations[index % animations.length]; 
+                    emart.style.transform = `rotate(${anim.rotate}deg) translate(${anim.translateX}px, ${anim.translateY}px)`;
+                } else {
+                    emart.style.transform = 'rotate(0deg) translate(0, 0)'; // 다른 슬라이드는 원래대로
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

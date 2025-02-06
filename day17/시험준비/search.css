@@ -1,0 +1,27 @@
+.search{
+    width: 200px;
+    height: 40px;
+    border: 1px solid black;
+
+    display: flex;
+}
+
+.btn{
+    width: 40px;
+    height: 40px;
+    /*border: 1px solid black;*/
+     
+
+    background-image: url(https://images.velog.io/images/orol116/post/72802a36-c1c6-4dbb-a4c2-4288161c3b2e/123.png);
+    background-size: cover;
+    background-position: center;
+
+
+}
+
+.search input{
+    
+    border: none;
+    outline: none;
+    padding-left: 10px;
+}

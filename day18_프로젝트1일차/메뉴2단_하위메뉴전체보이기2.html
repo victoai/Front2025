@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style> 
+    
+        ul{
+            list-style: none;
+        }
+        .menu{
+            display: flex;
+            width: 900px;
+        }
+
+        .hiddenmenu {
+            display: none;
+        }
+
+        .item{
+            margin: 10px;
+            width: 200px;
+        }
+
+        .menu:hover .hiddenmenu{
+            display: block;
+        }
+
+        .menu:hover  .inner{
+            
+            background-color: gray;
+           
+        }
+
+        .menu .inner{
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            top:50px;
+            opacity: 0.4;
+            transition: 0.5s;
+
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="menu">
+        <div class="inner"></div>
+        <li class="item">232
+            <ul class="hiddenmenu">
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </li>
+        <li class="item">232
+            <ul class="hiddenmenu">
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </li>
+        <li class="item">232
+            <ul class="hiddenmenu">
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </li>
+    </ul>
+    
+</body>
+</html>

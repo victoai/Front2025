@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인화면</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+        integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+ 
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+
+        window.addEventListener("load", function () {
+            new Swiper('.promotion .swiper', {
+                slidesPerView: 4,
+                spaceBetween: 100,
+                centeredSlides: false,
+                loop: true,
+                autoplay: {
+                    delay: 2000
+                },
+                speed: 1500,
+                navigation: {
+                    nextEl: '.promotion .swiper-button-next',
+                    prevEl: '.promotion .swiper-button-prev',
+                }
+            });
+        });
+    
+
+        function checkLogin() {
+            if (!sessionStorage.getItem("loggedInUser")) {
+                alert("로그인이 필요합니다!");
+                sessionStorage.setItem("redirectAfterLogin", "board.html");
+                window.location.href = "login.html";
+                return false;
+            }
+            return true;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let closeBtn = document.querySelector(".close_icon");
+            let fullViewWrap = document.querySelector(".Fullview_wrap");
+            let openBtn = document.getElementById("open_fullview");
+
+            closeBtn.addEventListener("click", function () {
+                fullViewWrap.style.display = "none";
+            });
+
+            openBtn.addEventListener("click", function () {
+                fullViewWrap.style.display = "block";
+            });
+        });
+    </script>
+
+    <style>
+        * {
+    text-decoration: none;
+}
+
+
+/* 스위퍼 */
+.swiper {
+    width: 1200px;
+    height:700px;
+    padding-top:30px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.swiper-wrapper .name {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.swiper-wrapper .date {
+    font-weight: bold;
+    color: black;
+    height: 80px;
+}
+
+.swiper-wrapper .info {
+    height: 30px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.swiper button {
+    color: black;
+    background-color: #e4e4e4;
+    border: none;
+    border-radius: 50px;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.swiper-wrapper img {
+    width: 220px;
+    border: 0.5px solid #999999;
+    border-radius: 20px;
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #ccc;
+    transition: 1s;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: rgb(65, 65, 226);
+}
+
+.swiper-slide {
+    transition:1s ease;
+}
+
+.swiper-slide:hover {
+    transform: translateY(-40px);
+}
+
+
+
+/* 대성학원 전체보기 클릭 반환 창 */
+.Fullview_wrap {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+}
+
+.view_bg {
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+}
+
+.view_wrap {
+    display: table;
+    width: 1200px;
+    padding: 71px 45px;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    background-color: #fff;
+    z-index: 1000;
+    min-height: 500px;
+}
+
+.close_icon .X1 {
+    position: absolute;
+    top: 15px;
+    right: 2px;
+    width: 80%;
+    transform: rotate(45deg);
+    border: 1px solid rgba(0, 0, 0, 0.8)
+}
+
+.close_icon .X2 {
+    position: absolute;
+    top: 15px;
+    right: 2px;
+    width: 80%;
+    transform: rotate(-45deg);
+    border: 1px solid rgba(0, 0, 0, 0.8)
+}
+
+.close_icon {
+    position: absolute;
+    top: 45px;
+    right: 50px;
+    width: 34px;
+    height: 34px;
+}
+
+.close_icon:hover {
+    cursor: pointer;
+}
+
+.Fullview_title {
+    display: table-cell;
+    width: 20%;
+    font-size: 26px;
+    border-right: 2px solid #e7e7e7;
+}
+
+.view_title {
+    font-size: 20px;
+}
+
+.Fullview_academy,
+.Fullview_pro,
+.Fullview_repeat,
+.Fullview_sup {
+    display: table-cell;
+    padding: 20px 18px 25px 18px;
+    width: 20%;
+    border-right: 2px solid #e7e7e7;
+}
+
+.Fullview_sup {
+    border-right: none;
+}
+
+.view_wrap ul {
+
+    list-style: none;
+    text-align: left;
+}
+
+.view_wrap li {
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.view_wrap li:hover {
+    cursor: pointer;
+    color: black;
+}
+
+
+.Fullview_academy ul,
+.Fullview_pro ul,
+.Fullview_repeat ul,
+.Fullview_sup ul {
+    padding: 0px;
+}
+
+/* header */
+header {
+    display: flex;
+    height: 50px;
+}
+
+.logo_wrap {
+    width: 20%;
+}
+
+.dropdown_wrap {
+    width: 60%;
+    text-align: center;
+    line-height: 50px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    font-weight: bolder;
+    
+}
+
+.dropdown a {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    border: 0.5px solid #b8b8b8;
+    border-top: 3px solid #00AFAD;
+    z-index: 5;
+}
+
+.dropdown-content a {
+    color: rgb(136, 136, 136);
+    display: block;
+    text-align: left;
+    width: 100%;
+}
+
+.dropdown:hover {
+    color: #00AFAD;
+}
+
+.dropdown a:hover {
+    color: #00AFAD;
+}
+
+.dropdown-content a:hover {
+    color: #252525;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menutab {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-align: 50px;
+    line-height: 50px;
+}
+
+.phonenum {
+    width: 100px;
+    height: 30px;
+}
+
+.menuicon {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+}
+
+.menuicon:hover {
+    cursor: pointer;
+}
+
+.menutab a {
+    text-decoration: none;
+    color: rgb(136, 136, 136);
+    font-size: 13px;
+}
+
+#open_fullview {
+    cursor: pointer;
+}
+
+
+
+
+
+/*box태그*/
+.box_wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_box{
+    width: 300px;
+    height: 300px;
+    min-width: 250px; /* 너무 작아지지 않도록 설정 */  
+    background-color: #f5f5f5;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 효과 */
+
+    position: relative;
+}
+
+.main_box img{
+    width: 80%;
+    height: 90%;
+}
+
+@media (max-width: 768px) {
+.box_wrap{
+    display: flex;
+    justify-content: start;
+}
+
+    .main_box {
+        width: 90%;  
+        margin: 10px 0;
+    }
+}
+
+.sub_box{
+    background-color: #f0f3f6;
+    text-align: center;   
+}
+
+.sub2_box{
+    width: 100%;
+    background-color: white;
+    margin-top: 10px;
+
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0px;
+}
+
+.sub2_box p{
+    max-width: 100%; /* 최대 크기 설정 */
+    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+    text-overflow: ellipsis; /* 넘칠 경우 '...' 표시 */
+    font-size: 15px;
+}
+
+
+
+
+
+/* footer */
+.find {
+    height: 30px;
+    background-color: #e2e2e2;
+    display: flex;
+    line-height: 30px;
+}
+
+.find a {
+    text-decoration: none;
+    color: black;
+}
+
+.find1 {
+    margin-left: 10px;
+}
+
+.footer {
+    display: flex;
+    text-align: center;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.foot1,
+.foot3 {
+    width: 20%;
+}
+
+.foot2 {
+    width: 60%;
+}
+
+.footer_item {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.footer img {
+    width: 100%;
+    max-width: 200px;
+}
+
+.footer span {
+    color: red;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="Fullview_wrap" style="display: none;">
+            <div class="view_bg">
+                <div class="view_wrap">
+                    <a class="close_icon">
+                        <div class="X1"></div>
+                        <div class="X2"></div>
+                    </a>
+                    <div class="Fullview_title">
+                        대성학원&nbsp전체보기
+                    </div>
+                    <div class="Fullview_academy">
+                        <span class="view_title">재수종합학원</span>
+                        <ul>
+                            <li>대성학원 본원</li>
+                            <li>강남대성</li>
+                            <li>강남대성SII(대치)</li>
+                            <li>강남대성별관</li>
+                            <li>강남대성WE`UP</li>
+                            <li>강남대성기숙 의대관</li>
+                            <li>강남대성 QUETTA</li>
+                            <li>대성학원 부산</li>
+                        </ul>
+                    </div>
+                    <div class="Fullview_pro">
+                        <span class="view_title">단과학원</span>
+                        <ul>
+                            <li>두각</li>
+                            <li>분당두각</li>
+                        </ul>
+
+                    </div>
+                    <div class="Fullview_repeat">
+                        <span class="view_title">독학재수원</span>
+                        <ul>
+                            <li>DLab분당</li>
+                            <li>DLab일산</li>
+                            <li>DLab동탄</li>
+                            <li>DLab김포</li>
+                        </ul>
+                    </div>
+                    <div class="Fullview_sup">
+                        <span class="view_title">협력학원</span>
+                        <ul>
+                            <li>부산대성기숙학원</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="logo_wrap">
+            <a href="mainscreen.html">
+                <img src="./images/logo.png">
+            </a>
+        </div>
+        <div class="dropdown_wrap">
+            <div class="dropdown">
+                <a href="board.html" onclick="return checkLogin()">게시글</a>
+            </div>
+            <div class="dropdown">
+                학원안내
+                <div class="dropdown-content">
+                    <a href="/대성학원/대입결과.html">대입결과</a>
+                    <a href="">시설안내</a>
+                    <a href="">학습콘텐츠</a>
+                    <a href="">공지사항</a>
+                    <a href="">주간식단표</a>
+                    <a href="">자주하는 질문</a>
+                    <a href="">오시는길</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                선생님소개
+                <div class="dropdown-content">
+                    <a href="">국어</a>
+                    <a href="">수학</a>
+                    <a href="">영어</a>
+                    <a href="">사회탐구</a>
+                    <a href="">과학탐구</a>
+                    <a href="">논술</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                모집요강
+                <div class="dropdown-content">
+                    <a href="">정규시즌</a>
+                    <a href="">2월 야간반</a>
+                    <a href="">시즌Zero</a>
+                    <a href="">장학제도</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                온라인접수
+                <div class="dropdown-content">
+                    <a href="">온라인접수</a>
+                    <a href="">온라인 점수확인</a>
+                    <a href="">합격자 발표안내</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                학원방학계획
+                <div class="dropdown-content">
+                    <a href="스키장page.html" target="_blank">스키장</a>
+                    <a href="https://adventure.lotteworld.com/kor/enjoy/attrctn/list.do" target="_blank">롯데월드</a>
+                </div>
+            </div>
+            <div class="dropdown">        
+                <a class="dmb" href="./디멤버.html" target="_blank" onclick="jx_click(this)" attr_cid="MENU_DM"><span><em>디멤버</em> 재원생 전용</span></a>
+            </div>
+        </div>
+        <div class="menutab">
+            <img src="./images/phonenum.png" class="phonenum">
+            &nbsp|&nbsp
+            <p id="open_fullview">대성학원 전체보기</p>
+            &nbsp&nbsp&nbsp&nbsp
+
+            <div class="dropdown">
+                <img src="./images/menuicon.png" class="menuicon">
+                <div class="dropdown-content">
+                    <a href="login.html">로그인</a>
+                    <a href="signin.html">회원가입</a>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+    </header>
+    <div class="promotion">
+        
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="https://kangnam.dshw.co.kr/recruitment/regularclass.do">
+                        <p class="name">정규시즌</p>
+                        <img src="images/G.jpg">
+                        <p class="info">
+                            SII 정규시즌<br>
+                            인문/자연(과탐1+1/1+2/2+2)
+                        </p>
+                        <p class="date">
+                            개강 : 2025년 2/17(월)<br>
+                            접수 : 2025년 1/10(금) 오전10시
+                        </p>
+                        <button>모집중</button>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://kangnam.dshw.co.kr/recruitment/teachercurriculumreg.do">
+                        <p class="name">정규시즌 커리큘럼</p>
+                        <img src="images/C.jpg">
+                        <p class="info">강사별 수업 특징</p>
+                        <p class="date">
+                            개강 : 2025년 2/17(월)<br>
+                            접수 : 2025년 1/10(금)
+                        </p>
+                        <button>커리큘럼 확인하기</button>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://kangnams2.dshw.co.kr/recruitment/nights2.do">
+                        <p class="name">2월 야간반</p>
+                        <img src="images/Q.jpg">
+                        <p class="info"></p>
+                        <p class="date">
+                            개강 : 2025년 2/25(화)<br>
+                            접수 : 2025년 1/20(월)
+                        </p>
+                        <button>모집중</button>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://kangnams2.dshw.co.kr/recruitment/prerequisitelearning_s2.do">
+                        <p class="name">시즌Zero</p>
+                        <img src="images/Z.jpg">
+                        <p class="info">
+                            SII시즌 Zero<br>
+                            인문/자연(과탐1+1/1+2)
+                        </p>
+                        <p class="date">
+                            개강 : 2025년 1/6(월)<br>
+                            접수 : 2024년 12/12(목)
+                        </p>
+                        <button>모집중</button>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.dugak.net/">
+                        <p class="name">두각 단과</p>
+                        <img src="images/D.jpg">
+                        <p class="info">
+                            N수, 고1,2,3<br>
+                            단과/논술</p>
+                        <p class="date">
+                            개강 : 매월<br>
+                            접수 : 매월<br>
+                            #선착순 등록 마감<br>
+                            #파이널 논술
+                        </p>
+                        <button>모집중</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+
+    <!--박스 태그-->
+    <div class="box_wrap">
+        <div class="main_box">
+            <div class="sub_box">
+                <p>2026학년도 N수</p>
+                <h3>정규시즌<br>접수 오픈</h3>
+                <p>대성학원</p>
+            </div>
+            <div class="sub2_box">
+                <p>[대성학원] 2026학년도 N수 정규시즌 접수</p>
+                <p>모집 안내</p>       
+            </div>
+        </div>
+    
+        <div class="main_box">
+            <div class="sub_box">
+                <a href="https://www.instagram.com/p/C6chihISB0c/?img_index=1">
+                <img src="https://img.dshw.co.kr/banner/202405030921481.png" alt="Clickable Image">
+                </a>
+            </div>
+            <div class="sub2_box">
+                Good, Better, Best
+                <p>대성학원 인스타그램</p>
+            </div>
+        </div>
+        
+    
+        <div class="main_box">
+            <div class="sub_box">
+                <a href="https://www.youtube.com/watch?v=KJRBQ8XilgY">
+                <img src="https://img.dshw.co.kr/banner/202401261642391.PNG" alt="Clickable Image">
+                </a>
+            </div>
+            <div class="sub2_box">
+                대성학원 브이로그
+                <p>손승연</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="footer_wrap">
+        <div class="find">
+            <a href="findexaminer.html" class="find1">출제자 공개모집</a>
+            &nbsp|&nbsp
+            <a href="findteacher.html">선생님 모집</a>
+            &nbsp|&nbsp
+            <a href="copyright.html">저작권 신고</a>
+        </div>
+
+        <!-- 푸터 영역 -->
+        <div class="footer">
+            <!-- 푸터 왼쪽 -->
+            <div class="footer_item foot1">
+                <img
+                    src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDExMTNfMjE0%2FMDAxNjA1MjUyNTk2ODU0.j74xjPeHt-Arx9mXEfbUDi9WcV0c3zfvUauG3SFjOZ8g.imcF1Nf5Ep9nNi70sqx-EtV1O20iRe2QApV43vhxa7og.JPEG.ddmds1%2F%25B4%25E4%25BD%25CA%25B8%25AE%25BF%25B5%25BE%25EE%25C7%25D0%25BF%25F8_%25BF%25B9%25BA%25F1%25C1%25DF1_%25BC%25B3%25B8%25ED%25C8%25B8_%25B4%25EB%25BC%25BA%25C7%25D0%25BF%25F8.jpeg&type=l340_165">
+            </div>
+
+            <!-- 푸터 가운데 -->
+            <div class="footer_item foot2">
+                <a href="https://www.dshw.co.kr/main/main.do">대성학원 본원 : 02)814-4500</a>
+                &nbsp|&nbsp
+                <a href="https://kangnam.dshw.co.kr/main/main.do">강남대성 : 02)581-7888</a>
+                &nbsp|&nbsp
+                <a href="https://kangnams2.dshw.co.kr/main/main.do">강남대성SII(대치) : 02)556-2733</a>
+                &nbsp|&nbsp
+                <a href="https://gangstar.dshw.co.kr/main/main.do">별관 : 02)585-9600<br></a>
+                &nbsp|&nbsp
+                <a href="https://weup.dshw.co.kr/main/main.do">강남대성 WE UP : 02)430-8900</a>
+                &nbsp|&nbsp
+                <a href="https://campusm.dshw.co.kr/main/main.do">강남기숙 의대관 : 031)8010-0010</a>
+                &nbsp|&nbsp
+                <a href="https://campusk.dshw.co.kr/main/main.do">강남대성 QUETTA : 031)638-6688<br></a>
+                &nbsp|&nbsp
+                <a href="https://busan.dshw.co.kr/main/main.do">대성학원 부산 : 051)553-1616</a>
+                &nbsp|&nbsp
+                <a href="https://www.dugak.net/">두각 : 02)556-2700<br></a>
+                &nbsp|&nbsp
+                <a href="https://dsbusan.cafe24.com/">[직영] 부산기숙 : 055)381-0700</a>
+                &nbsp|&nbsp
+                <a href="http://www.dsulsan.com/default/main/int.php">[자매] 울산 : 052)224-6655</a>
+                &nbsp|&nbsp                
+            </div>
+
+            <!-- 푸터 오른쪽 -->
+            <div class="footer_item foot3">
+                <span>Copyrights Since 1965 대성학원 All Rights Reserved</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

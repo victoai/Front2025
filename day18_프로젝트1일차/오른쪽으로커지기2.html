@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 시 왼쪽으로 확장</title>
+    <style>
+        body {
+            height: 200vh; /* 스크롤 가능하도록 높이 설정 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+          
+          
+            padding-right: 20px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            position: absolute;
+            right: 20px; /* 오른쪽을 고정 */
+            transition: width 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box"></div>
+    </div>
+
+    <script>
+        document.addEventListener("scroll", () => {
+            const box = document.querySelector(".box");
+            const scrollY = window.scrollY; // 현재 스크롤 위치
+            const 특정위치  = 300; // 특정 스크롤 위치에서 시작
+
+            if (scrollY > 특정위치) {
+                box.style.width = "300px"; // 왼쪽으로 확장
+            } else {
+                box.style.width = "100px"; // 원래 크기로 복귀
+            }
+        });
+    </script>
+
+</body>
+</html>

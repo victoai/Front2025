@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        form{
+            display: flex;
+            width: 600px;
+            padding: 10px;
+        }
+        .icon{
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            
+        }
+
+    </style>
+
+    <script>
+        function a(){
+
+            document.frm.style.border="1px solid red";
+        }
+
+        function  b(){
+           document.frm.style.border="none";
+        }
+    </script>
+</head>
+<body>
+    
+
+    <form name="frm">
+        <div class="icon"></div>
+        <input type="text" onfocus="a()"  onblur="b()">
+    </form>
+</body>
+</html>

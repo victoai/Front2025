@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script>
+
+        window.addEventListener("load", function(){
+          
+                new Swiper('.promotion .swiper',{
+                    slidesPerView:3 ,
+                    spaceBetween :10 ,
+                    centeredSlides:true,
+                    loop:true,
+                    autoplay: {
+                        delay: 2000
+                    },
+                    speed: 1000,      
+                    pagination: {
+                        el: '.promotion .swiper-pagination' ,
+                        clickable: true
+                    },
+                  
+                    navigation: {
+                        nextEl: '.promotion .swiper-button-next',
+                        prevEl: '.promotion .swiper-button-prev',
+                    } 
+
+                });
+
+        });     
+    </script>
+
+    <style>
+        /* swipe */
+        .swiper{  
+         width: 100%;
+         height: 300px;    
+         margin: 0 atuo;
+        }
+
+        /*  style 변경가능하다 */
+        .swipter-pagination{
+            color:#cccccc;
+        }
+    
+        .swiper-button-next{
+            color:#ccc;
+        }
+       .swiper-pagination-bullet-active{
+        background-color: rgb(203, 120, 120);
+       }
+
+        img{
+            width: 250px;
+            height: 250px;
+        } 
+
+
+
+
+
+        /*body태그*/
+        .box_wrap{
+
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main_box{
+            width: 300px;
+            height: 300px;
+            min-width: 300px; /* 너무 작아지지 않도록 설정 */  
+            background-color: #f5f5f5;
+            margin-top: 30px;
+            margin-left: 30px;
+            margin-right: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 효과 */
+            border-radius: 10px;
+
+            border: 1px solid black;
+
+
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+
+            .box_wrap{
+
+            
+                display: flex;
+                justify-content: start;
+              
+            }
+
+            .main_box {
+                width: 90%;  
+                margin: 10px 0;
+            }
+        }
+        
+        .sub_box{
+            background-color: #f0f3f6;
+            text-align: center;   
+        }
+
+        .sub2_box{
+            width: 100%;
+            background-color: white;
+            margin-top: 10px;
+            
+            border: 1px solid black;
+            box-sizing: border-box;
+
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .sub2_box p{
+            max-width: 100%; /* 최대 크기 설정 */
+            overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+            white-space: nowrap; /* 줄바꿈 방지 */
+            text-overflow: ellipsis; /* 넘칠 경우 '...' 표시 */
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>    
+    <section class="notice">
+        <!--광고  슬라이더-->
+                <div class="promotion">
+                   <div class="swiper">
+                       <div class="swiper-wrapper">
+                           <!-- Slides -->
+                           <div class="swiper-slide">   <img src="./images/대.jpg"></div>
+                           <div class="swiper-slide">   <img src="./images/성.jpg"></div>
+                           <div class="swiper-slide">   <img src="./images/학.jpg"></div>         
+                           <div class="swiper-slide">   <img src="./images/원.jpg"></div>    
+                           <div class="swiper-slide">   <img src="./images/이미지.jpg"></div>               
+                         </div>
+                         
+                           <div class="swiper-pagination"></div>
+                           <!-- If we need navigation buttons -->
+                           <div class="swiper-button-prev"></div>
+                           <div class="swiper-button-next"></div>
+                   </div>
+                </div>
+        
+
+           
+        <div class="box_wrap">
+            <div class="main_box">
+                <div class="sub_box">
+                    <p>2026학년도 N수</p>
+                    <h3>정규시즌<br>접수 오픈</h3>
+                    <p>대성학원</p>
+                </div>
+                <div class="sub2_box">
+                    <p>[대성학원] 2026학년도 N수 정규시즌 접수</p>
+                    <p>모집 안내</p>
+                </div>
+            </div>
+        
+            <div class="main_box">
+                <div class="sub_box">
+                    <img src="https://img.dshw.co.kr/banner/202405030921481.png">
+                </div>
+                <div class="sub2_box">
+                    Good, Better, Best
+                    <p>대성학원 인스타그램</p>
+                </div>
+            </div>
+            
+        
+            <div class="main_box">
+                <div class="sub_box">
+                    <img src="https://img.dshw.co.kr/banner/202401261642391.PNG" alt="">
+                </div>
+                <div class="sub2_box">
+                    대성학원 브이로그
+                    <p>손승연</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

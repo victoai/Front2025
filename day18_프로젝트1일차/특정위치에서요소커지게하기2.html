@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>왼쪽으로만 확장되는 박스</title>
+    <style>
+        body {
+            height: 200vh; /* 스크롤 가능하도록 높이 설정 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .trigger-section {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            transition: width 0.1s linear;
+            position: absolute;
+            right: 50%; /* 오른쪽 기준으로 고정 */
+            transform: translateX(50%); /* 오른쪽을 고정하고 왼쪽으로 확장 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="trigger-section">
+        <div class="box"></div>
+    </div>
+
+    <script>
+        document.addEventListener("scroll", () => {
+            const box = document.querySelector(".box");
+            const scrollY = window.scrollY; // 현재 스크롤 위치
+            const triggerPoint = 300; // 특정 위치에서 시작
+            
+            if (scrollY > triggerPoint) {
+                let newWidth = 100 + (scrollY - triggerPoint) * 2; // 크기 증가
+                if (newWidth > 300) newWidth = 300; // 최대 크기 제한
+                
+                box.style.width = newWidth + "px"; // 왼쪽으로만 확장
+            }
+        });
+    </script>
+
+</body>
+</html>

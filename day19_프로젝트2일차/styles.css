@@ -1,0 +1,280 @@
+* {
+    text-decoration: none;
+}
+
+/* 대성학원 전체보기 클릭 반환 창 */
+.Fullview_wrap {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 998;
+    top: 0;
+}
+
+.view_bg {
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100vh;
+    z-index: 997;
+}
+
+.view_wrap {
+    display: table;
+    width: 1200px;
+    padding: 71px 45px;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    background-color: #fff;
+    z-index: 996;
+    min-height: 500px;
+}
+
+.close_icon .X1 {
+    position: absolute;
+    top: 15px;
+    right: 2px;
+    width: 80%;
+    transform: rotate(45deg);
+    border: 1px solid rgba(0, 0, 0, 0.8)
+}
+
+.close_icon .X2 {
+    position: absolute;
+    top: 15px;
+    right: 2px;
+    width: 80%;
+    transform: rotate(-45deg);
+    border: 1px solid rgba(0, 0, 0, 0.8)
+}
+
+.close_icon {
+    position: absolute;
+    top: 45px;
+    right: 50px;
+    width: 34px;
+    height: 34px;
+}
+
+.close_icon:hover {
+    cursor: pointer;
+}
+
+.Fullview_title {
+    display: table-cell;
+    width: 20%;
+    font-size: 26px;
+    border-right: 2px solid #e7e7e7;
+}
+
+.view_title {
+    font-size: 20px;
+}
+
+.Fullview_academy,
+.Fullview_pro,
+.Fullview_repeat,
+.Fullview_sup {
+    display: table-cell;
+    padding: 20px 18px 25px 18px;
+    width: 20%;
+    border-right: 2px solid #e7e7e7;
+}
+
+.Fullview_sup {
+    border-right: none;
+}
+
+.view_wrap ul {
+
+    list-style: none;
+    text-align: left;
+}
+
+.view_wrap li {
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.view_wrap li:hover {
+    cursor: pointer;
+    color: black;
+}
+
+
+.Fullview_academy ul,
+.Fullview_pro ul,
+.Fullview_repeat ul,
+.Fullview_sup ul {
+    padding: 0px;
+}
+
+/* header */
+header {
+    display: flex;
+    height: 50px;
+    position: sticky;
+    top: 0px;
+
+}
+
+.logo_wrap {
+    width: 20%;
+}
+
+.dropdown a {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown_wrap {
+    width: 60%;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    z-index: 9999;
+    background-color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: blue;
+    min-width: 150px;
+    border: 0.5px solid #b8b8b8;
+    border-top: 3px solid #00AFAD;
+    z-index : 10000;
+    left: 0px;
+}
+
+.dropdown-content a {
+    color: rgb(136, 136, 136);
+    display: block;
+    text-align: left;
+    width: 100%;
+}
+
+.dropdown:hover {
+    color: #00AFAD;
+}
+
+.dropdown a:hover {
+    color: #00AFAD;
+}
+
+.dropdown-content a:hover {
+    color: #252525;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menutab {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: 50px;
+    line-height: 50px;
+}
+
+.phonenum {
+    width: 100px;
+    height: 30px;
+}
+
+.menuicon {
+    width: 30px;
+    height: 30px;
+}
+
+.menuicon:hover {
+    cursor: pointer;
+}
+
+.menutab a {
+    text-decoration: none;
+    color: rgb(136, 136, 136);
+    font-size: 13px;
+}
+
+#open_fullview {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1550px) {
+    .menutab,
+    .logo_wrap,
+    .drop1,
+    .drop2 {
+        display: none;
+    }
+
+    .dropdown_wrap {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* footer */
+.find {
+    height: 30px;
+    background-color: #c4bebe;
+    display: flex;
+    line-height: 30px;
+}
+
+.find a {
+    text-decoration: none;
+    color: black;
+}
+
+.find1 {
+    margin-left: 10px;
+}
+
+.footer {
+    background-color: white;
+    display: flex;
+    text-align: center;
+    background-color: #e2e2e2;
+    align-items: center;
+    justify-content: center;
+}
+
+.foot1,
+.foot3 {
+    width: 20%;
+}
+
+.foot2 {
+    width: 60%;
+}
+
+.footer_item {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.footer img {
+    width: 100%;
+    max-width: 200px;
+}
+
+.footer span {
+    color: red;
+}

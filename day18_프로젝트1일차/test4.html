@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move & Rotate</title>
+
+    <style>
+        .a {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            transition: transform 1s ease-in-out;
+        }
+
+        .b {
+            height: 2000px; /* 스크롤 공간 확보 */
+        }
+
+        .c {
+            position: fixed;
+            right: 10px;
+            top: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+    <script>
+        let rotation = 0;
+        let x = 0;
+        let y = 50; // 초기 Y 좌표
+
+        function moveRightUp() {
+            move(500, -150, 45);
+        }
+
+        function moveDown() {
+            move(0, 200, -45);
+        }
+
+        function moveLeft() {
+            move(-300, 0, 45);
+        }
+
+        function moveUp() {
+            move(0, -200, -45);
+        }
+
+        function move(dx, dy, dRotation) {
+            const a = document.querySelector(".a");
+            rotation += dRotation;
+            x += dx;
+            y += dy;
+            a.style.transform = `rotate(${rotation}deg)`;
+            a.style.left = `${x}px`;
+            a.style.top = `${y}px`;
+
+            setTimeout(() => {
+                window.scrollTo({
+                    top: y - 100, // 약간의 여백을 두고 스크롤
+                    left: x - 100,
+                    behavior: "smooth",
+                });
+            }, 500); // 애니메이션 후 스크롤 이동
+        }
+    </script>
+</head>
+<body>
+  
+    <div class="b">내용</div>
+    <div class="a"></div>
+    <div class="c">
+        <button onclick="moveRightUp()">1</button>
+        <button onclick="moveDown()">2</button>
+        <button onclick="moveLeft()">3</button>
+        <button onclick="moveUp()">4</button>
+    </div>
+
+</body>
+</html>

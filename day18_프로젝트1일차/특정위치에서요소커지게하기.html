@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 트리거 애니메이션</title>
+    <style>
+        body {
+            height: 200vh; /* 스크롤 가능하도록 높이 설정 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .trigger-section {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            transition: width 1s ease-in-out, transform 1s ease-in-out;
+            transform-origin: left;
+        }
+
+        .box.expand {
+            width: 300px; /* 커지는 크기 */
+            transform: translateX(-100px); /* 왼쪽으로 이동 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="trigger-section">
+        <div class="box"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const box = document.querySelector(".box");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        box.classList.add("expand");
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(box);
+        });
+    </script>
+
+</body>
+</html>

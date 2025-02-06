@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리예제</title>
+    <style>
+        .wrap{
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .imgDiv{
+            display: flex;
+            gap: 10px;
+        }
+        .imgDiv button{
+            font-size: 2em;
+            background-color: white;
+            border: none;
+            width: 50px;
+        }
+        .imgDiv button:hover{
+            color: red;
+            font-size: 2.2em;
+        }
+        .gallery{
+            width: 300px;
+            height: 400px;
+        }
+
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 370px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        td:nth-child(1){
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="titleDiv"></div>
+
+        <!--이미지-->
+        <div class="imgDiv">
+            <button class="prevBtn" onclick="prevBtn()">&laquo;</button>
+            <img class="gallery" src="">
+            <button class="nextBtn" onclick="nextBtn()">&raquo;</button>
+        </div>
+
+        <!--설명-->
+        <div class="introDiv"></div>
+    </div>
+
+    <script>
+        const movies = [
+            {
+                img : "https://i.namu.wiki/i/VO2PzLxnR9k_blcSBVHKB3EIKSmn_l4htTixFp0yyYeMYiVNRIbFHcPHZCUaOiwSLc2er6K6cvgqSij3KSa5nCcarrVEdq75BB90dfHIUkL_JMX4KtQ7279CCqoXoX5W4ErG5cBH_6XUIipswDy0hA.webp",
+                title : "명량",
+                year : "2014년",
+                director : "김한민",
+                attendance : "17,616,299명(1위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/pVIW_kRx_AKF1aiQH5Sqr5vz8NjaJ0hLFKmpqgE2hIkG67C_7OWQGxPD_IWzc4INlRE1VpnxpUb6GjTQaWq-J193VFX3QYg4o9mDihxUBVFMU32feaZmX7hB0tW5I0aJKNSSSJNQ_AMseu2pfjJoIA.webp",
+                title : "극한직업",
+                year : "2019년",
+                director : "이병헌",
+                attendance : "16,266,480명(2위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/_GgEaa_0C2ZQHdd4Kk1qh414pzt9Rp5ce_j651XBMvDD5FU_9dcBpA5Ra-gmyuvivAXT7sK5flGMMPvYeOnT0TcJTkztmocDJ0Y3OzGSKonauaQ5Yc-mFGtxE7vnnfhFf3tthczkTRbiLByzUI57kA.webp",
+                title : "신과함께: 죄와 벌",
+                year : "2017년",
+                director : "김용화",
+                attendance : "14,414,658명(3위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/qPd13vPJ4I5Bz-yXAeN9HBRxOsQAlQqwNw21PJLSsLFNRuoesgCxJT7UZWaZlYowcrybct_huYHjo05o-NR4Fl_PzWtihBF2LnIW36ewzXzlMPQD-oFRe4Jw1JKsim0hrgYYRIXIx8ViUuBD2WIciQ.webp",
+                title : "국제시장",
+                year : "2014년",
+                director : "윤제균",
+                attendance : "14,265,682명(4위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/1Lic-s5TU6ZdxF-vGBVU9IwXQ6MZjr3-gUiahjf86y9-vE7SlSoi8YarAZkYV_-7Df4EQSMvK-mu1Kmp523TYv10Hpp0ZKRL4BozdPbejftdUX339mg30N2ku3Z6aV67UjB7wAREEK8IwKF94WeNsw.webp",
+                title : "아바타",
+                year : "2009년",
+                director : "제임스 카메론",
+                attendance : "14,003,138명(5위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/qg5goUuxF82y18c24bQAPJMzM8b-q-JEY3dj3WF6nQGv0t9qCXhY6eEiihc9SrVZloiIj5NqnYQT21vKDgNzYIuRT-nsmr4Vb-C4JHXW6b46gdEh5Gbwq_yiuYkYWlG-Caug7xmJABB2eem1vxaJYg.webp",
+                title : "어벤져스: 엔드게임",
+                year : "2019년",
+                director : "앤서니 루소, 조 루소",
+                attendance : "13,977,602명(6위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/hUUChgGeDOXya4vRBvjV3OMaPQ0L_HhOt8CY1jYl0iio9zJuocFNE69I0-SpF8i0fANjfdnrKPXlIrtPqRgmWmK2nN343S159bOWqQ1u1S3i-LzDHlgBlad6rPVMTolgxHBRblVjsq88tCV6dg83kQ.webp",
+                title : "겨울왕국2",
+                year : "2019년",
+                director : "크리스 벅, 제니퍼 리",
+                attendance : "13,768,797명(7위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/rLLjMg0QO6FMfWVKxeJoU_q9bz8SauH88tNmG-dn3An-NxKfjD7YqEsX3-oliwy-PN1OlnJZ3nXOtEI19CtjPInV3lH9WODj-fQX-JlBhQpgwMkhYpFrwzdBPryQO5OLoXCeU9Q1eBWcOD75NsrbFQ.webp",
+                title : "베테랑",
+                year : "2015년",
+                director : "류승완",
+                attendance : "13,414,484명(8위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/pnGPjUg5J-_Viq8daF_JlCtx5iXqc0Gfq565kqbqsou8B-d_noi2XTK4QkuuVSe1chm9xb_ytzJ_93cdoGiNJnXDGUmLSuntSms8OrarWa72EaBXZRdncjV-awgYCaLBARTlnC2a4VuRdQoiVbqIhw.webp",
+                title : "서울의 봄",
+                year : "2023년",
+                director : "김성수",
+                attendance : "13,127,990명(9위)"
+            },
+            {
+                img : "https://i.namu.wiki/i/FEFWiXVj9ZgQhc_224v6Idk5e3_3OSDYr_PTTUsjEmyBTEfObHh0GL5D3jzia-JsbKtlvFOcr_Osg8kLRUISCTaO0yP-8SbO9ynRyJiCXCrNTOUG5lg97DVmeTFtS6LtZ8onBhqsy2GdHzxwKV1ZfQ.webp",
+                title : "괴물",
+                year : "2006년",
+                director : "봉준호",
+                attendance : "13,019,740명(10위)"
+            },
+        ]
+
+        //document 지정
+        const wrap = document.querySelector(".wrap")
+        const titleDiv = document.querySelector(".titleDiv")
+        const gallery = document.querySelector(".gallery")
+        const introDiv = document.querySelector(".introDiv")
+
+        //초기값
+        titleDiv.innerHTML = `<h2>1위 - ${movies[0].title}</h2>`
+        gallery.src = movies[0].img
+        introDiv.innerHTML = `
+            <table>
+                <tr>
+                    <td>제목</td>
+                    <td>${movies[0].title}</td>
+                </tr>
+                <tr>
+                    <td>개봉년도</td>
+                    <td>${movies[0].year}</td>
+                </tr>
+                <tr>
+                    <td>감독</td>
+                    <td>${movies[0].director}</td>
+                </tr>
+                <tr>
+                    <td>관객수</td>
+                    <td>${movies[0].attendance}</td>
+                </tr>
+            </table>
+        `
+
+        //인덱스 지정
+        let index = 0
+
+        //다음 버튼 
+        function nextBtn(){
+            index++
+            if(index >= movies.length){
+                index = 0
+            }
+
+            titleDiv.innerHTML = `<h2>${index + 1}위 - ${movies[index].title}</h2>`
+            gallery.src = movies[index].img
+            introDiv.innerHTML = `
+                <table>
+                    <tr>
+                        <td>제목</td>
+                        <td>${movies[index].title}</td>
+                    </tr>
+                    <tr>
+                        <td>개봉년도</td>
+                        <td>${movies[index].year}</td>
+                    </tr>
+                    <tr>
+                        <td>감독</td>
+                        <td>${movies[index].director}</td>
+                    </tr>
+                    <tr>
+                        <td>관객수</td>
+                        <td>${movies[index].attendance}</td>
+                    </tr>
+                </table>
+            `
+
+               wrap.animate([
+                    {transform : 'translateY(5%)', opacity: 0},
+                    {transform : 'translateY(0px)', opacity: 1},
+                ],
+                    {duration : 1000} //효과가 1초 동안 지속
+                )
+
+        }
+
+        //이전 버튼 
+        function prevBtn(){
+            index--
+            if(index < 0){
+                index = movies.length - 1
+            }
+
+            titleDiv.innerHTML = `<h2>${index + 1}위 - ${movies[index].title}</h2>`
+            gallery.src = movies[index].img
+            introDiv.innerHTML = `
+            <table>
+                <tr>
+                    <td>제목</td>
+                    <td>${movies[index].title}</td>
+                </tr>
+                <tr>
+                    <td>개봉년도</td>
+                    <td>${movies[index].year}</td>
+                </tr>
+                <tr>
+                    <td>감독</td>
+                    <td>${movies[index].director}</td>
+                </tr>
+                <tr>
+                    <td>관객수</td>
+                    <td>${movies[index].attendance}</td>
+                </tr>
+            </table>
+        `
+
+            wrap.animate([
+                {transform : 'translateY(5%)', opacity: 0},
+                {transform : 'translateY(0px)', opacity: 1},
+            ],
+                {duration : 1000} //효과가 1초 동안 지속
+            )
+        }
+    </script>
+</body>
+</html>

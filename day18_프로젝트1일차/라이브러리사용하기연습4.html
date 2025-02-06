@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper 애니메이션</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        .swiper {
+            width: 100%;
+            height: 700px;
+            border: 1px solid black;
+        }
+
+        .bg1 {
+            background-color: rgb(36, 32, 32);
+            color: white;
+            height: 100%;
+        }
+
+        .bg2 {
+            background-color: rgb(207, 148, 148);
+            color: rgb(128, 122, 122);
+            height: 100%;
+        }
+
+        .bg3 {
+            background-color: rgb(222, 236, 138);
+            color: rgb(128, 122, 122);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bg1, .bg2 {
+            display: flex;
+        }
+
+        .title {
+            width: 30%;
+        }
+
+        .content {
+            width: 70%;
+        }
+
+        .emart {
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 1s ease-in-out;
+        }
+
+        /* item 애니메이션 기본 상태 */
+        .item {
+            opacity: 0;
+            transform: translateX(-100px) rotate(-30deg);
+            transition: opacity 0.8s ease-out, transform 1s ease-out;
+        }
+
+        /* 활성화될 때 적용되는 클래스 */
+        .item.active {
+            opacity: 1;
+            transform: translateX(-500px) rotate(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="bg1">
+                    <div class="title">
+                        <div class="emart">emart</div>
+                    </div>
+                    <div class="content">그림</div>
+                    <div class="item">item</div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="bg2">
+                    <div class="content">그림</div>
+                    <div class="title">
+                        <div class="emart">emart</div>
+                    </div>
+                    <div class="item">item</div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="bg3">APP</div>
+            </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            direction: 'vertical',
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            mousewheel: true,
+        });
+
+        swiper.on('slideChangeTransitionEnd', function () {
+            document.querySelectorAll('.emart').forEach((emart, index) => {
+                // 랜덤한 각도와 이동값 적용
+                const rotation = Math.floor(Math.random() * 360); // 0 ~ 360도 회전
+                const translateX = Math.floor(Math.random() * 50) - 25; // -25px ~ 25px 이동
+                const translateY = Math.floor(Math.random() * 50) - 25; // -25px ~ 25px 이동
+
+                emart.style.transform = `rotate(${rotation}deg) translate(${translateX}px, ${translateY}px)`;
+            });
+
+
+            document.querySelectorAll('.item').forEach((item, index) => {
+                item.classList.remove('active'); // 기존 active 클래스 제거
+                setTimeout(() => {
+                    item.classList.add('active'); // 시간차를 두고 애니메이션 실행
+                }, index * 3000); // 0.3초씩 순차적으로 실행
+            });
+        });
+    </script>
+
+</body>
+</html>
